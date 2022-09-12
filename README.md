@@ -11,8 +11,8 @@ A Colorado Board of Elections employee gave us the following tasks to complete t
 5. Determine the winner of the election based on populat vote.
 
 ## **Resources:**
--Data source: election_results.csv
--Software: Python *3.6.1* , Visual Studio Code
+- Data source: election_results.csv
+- Software: Python *3.6.1* , Visual Studio Code
 
 ## **Summary**
 The analysis of the election show that:
