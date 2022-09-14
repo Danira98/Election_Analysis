@@ -31,9 +31,9 @@ We are using the following resources to complete our analysis:
 - Data source: election_results.csv
 - Software: Python *3.6.1* , Visual Studio Code
 
-## **Summary**
+## **Summary and Results**
 
-### Results
+### Election-Audit Results:
 The analysis of the election votes show the following results:
 
  - There were *369,711* total votes cast in the election.
@@ -62,6 +62,32 @@ The analysis of the election votes show the following results:
     
     ![Results](https://user-images.githubusercontent.com/111034667/190249791-be46c7cc-6339-40ff-8e90-b36e566762ea.png)
     
-## 
-  
+### Election-Audit Summary:
 
+The code created to return these results can be reused for future elections. There are small changes that need to be done to our code in order to reuse it for future elections and they are as follow:
+
+At the beginning of our code, we declare these two variables to open our data file and open our txt file where we will record our results:
+```
+# Assign a variable to load a file from a path.
+file_to_load = os.path.join("Resources", "election_results.csv")
+# Assign a variable to save the file to a path.
+file_to_save = os.path.join("analysis", "election_analysis.txt")
+```
+For future elections,when we declare the variable file_to_load and file_to_save, it will be necessary to change the os.path.join() expressions to match our new folders. We will have to change the expression inside our () to match the new folder (in this case Resources is our folder), the new csv file(which is in our Resources folder), and the new txt file (which is in our newly created folder "analysis").
+
+For example, if our new files are in a folder 'Results', our csv file is called 'election_2022_results.csv',our new folder to hold our txt file is 'results2022' and our txt file is '2022_results', we can modify our code to be the following:
+```
+# Assign a variable to load a file from a path.
+file_to_load = os.path.join("Results", "election_2022_results.csv")
+# Assign a variable to save the file to a path.
+file_to_save = os.path.join("results2022", "2022_results.txt")
+```
+This code will work as long as our folders are within the same folder. If we have our Python file outside of the folder containing all of our resources, then it would be neccesary to do the following changes:
+
+```
+# Assign a variable to load a file from a path.
+file_to_load = os.path.join("..","Results", "election_2022_results.csv")
+# Assign a variable to save the file to a path.
+file_to_save = os.path.join("results2022", "2022_results.txt")
+```
+By adding "..", before the name of our folder, we are able to locate the folders and open them without a problem.
